@@ -6,3 +6,8 @@ root@192.168.74.128
 
 [file_servers]
 red@192.168.74.136 
+
+[workstations]
+ansible@192.168.74.133
+
+
