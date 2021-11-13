@@ -18,6 +18,16 @@
        update_cache: yes
      when: ansible_distribution == "Ubuntu"
 
+- hosts: all
+  become: true
+  tasks:
+
+    - name: add ssh key for ansPlayer
+      tags: always
+      authorized_key:
+        user: ansPlayer
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCir5+ojzuFouaVHxy+f7tmSt/uTWY861n96Q0GPu5K2uHPOEkkoFXBEBco7eWk+APSSHIpe+dAJ0Z71W5z/Ah1UGlHVd79o/v4prP/VGjImInVNoqw/Xo3oGw5lD6mENwMdLsUkjPukuD8TNyCIDQv/bxGPPdQZ+tMQDW8IL/UPi2AZ373L2EfHiXS+dl9PgYohIm/l+0F2Byotmedmz85y+Yd0N/OWkGGW0MrNKvpzqEujbzsVhgSr4kQJ06iVKVLoLkt2ajnUGxWYakzbmSBviz8Ao90OJyVIM10GkFtQU2L45+aIeDym/grApIk6FzmMCpiUsBfJckp6RoFc8xH soup@ansone.example.com"
+
 - hosts: workstations
   become: true
   tasks:
