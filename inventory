@@ -2,12 +2,12 @@
 root@192.168.74.132
 
 [db_servers]
-root@192.168.74.128
+root@192.168.74.137
 
 [file_servers]
-192.168.74.136 
+root@192.168.74.136 
 
 [workstations]
-ansible@192.168.74.133
+root@192.168.74.133
 
 
