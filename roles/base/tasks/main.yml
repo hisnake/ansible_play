@@ -1,0 +1,14 @@
+- name: add ssh key for ansPlayer
+  authorized_key:
+     user: ansPlayer
+     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBA2t4bvLFYGOSkb3psu10hfugF0yQmg/TZxWMNwY427N0pcjNGwvcn+kRCBMldD/TNyZrMn9RQxvqRs47OfHvMFdYWfClVvtuArQy9z5gBgqTQHPGTkhwxqT+ysfJotuZdjlQnOof04Qzbvbsc7uTwdTW1wSob6i0r1YFW4X8skkOegHSV4qwYLu0dfYjQ9tj04GVM97P7QqADTs6WFH+r3MeHqezVxW4Bi5tnZ02Td9hQHZddc9mz224eo9UWmZF0O9RxJsnkWLfV7M9xVMMW8FkJe+n7dzz0n8kKZ+fWG+YYKqwIwqh7bO+BGvBCv2lsTQ3uZsV3zwObH6g0wvR root@ansone.example.com"
+
+- name: generate sshd_config file from template
+  tags: ssh
+  template:
+    src: "{{ ssh_template_file }}"
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_sshd
